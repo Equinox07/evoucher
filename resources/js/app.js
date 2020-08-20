@@ -1,6 +1,8 @@
 /*jshint esversion:8 */
 import router from "./router";
 import VModal from 'vue-js-modal';
+import Vuesax from 'vuesax';
+import 'vuesax/dist/vuesax.css'; //Vuesax styles
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -14,6 +16,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 Vue.use(VModal);
+Vue.use(Vuesax);
 
 
 window.axios.defaults.headers.get['Accept'] = 'application/json'; // default header for all get request

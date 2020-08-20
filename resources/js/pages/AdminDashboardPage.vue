@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="container">
+       <h1 class="display-4">Welcome Admin</h1>
       <div class="card">
         <div class="card-header">Welcome Admin</div>
         <div class="card-body">

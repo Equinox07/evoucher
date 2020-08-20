@@ -23,7 +23,8 @@
         "vue": "^2.6.11",
         "vue-js-modal": "^2.0.0-rc.6",
         "vue-router": "^3.4.3",
-        "vue-template-compiler": "^2.6.11"
+        "vue-template-compiler": "^2.6.11",
+        "vuesax": "^4.0.1-alpha.23"
     },
     "dependencies": {
         "collect.js": "^4.28.0"

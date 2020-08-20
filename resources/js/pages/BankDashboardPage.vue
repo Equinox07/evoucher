@@ -11,11 +11,23 @@
       </div>
     </div>
     <div class="row mt-5">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">Cards Generated 0</div>
+     <div class="col-xl-3 col-sm-6 col-12">
+      <div class="card">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media d-flex">
+              <div class="align-self-center">
+                <i class="fa fa-edit fa-2x primary float-left text-info"></i>
+              </div>
+              <div class="media-body text-right">
+                <h3>278</h3>
+                <span>Generated Cards</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">Students 0</div>
@@ -111,10 +123,20 @@ export default {
     };
   },
   methods: {
+      openLoading() {
+          const loading = this.$vs.loading({
+              text: 'Loading...',
+              type: 'circles'
+          })
+          setTimeout(() => {
+            loading.close()
+          }, 3000)
+      },
     generateCard() {
-      console.log("Voucher Generated...", this.card);
+        console.log("Voucher Generated...", this.card);
     },
     registerStudent() {
+        this.openLoading();
       this.$modal.show("register-student");
     },
     async saveStudent() {
