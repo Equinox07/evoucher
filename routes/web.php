@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\VoucherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
 Route::get('/{vue?}', function () {
     return view('app');
 })->where('vue', '[\/\w\.-]*')->name('home');
