@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Models\Student;
 use App\User;
 use Illuminate\Database\Seeder;
@@ -15,19 +17,23 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $connection = config('database.default');
-        $driver = config("database.connections.{$connection}.driver");
-        //reset the table
-        if($driver == 'mysql') {
-            DB::statement("SET FOREIGN_KEY_CHECKS=0");
-            DB::table('model_has_roles')->truncate();
-            DB::table('roles')->truncate();
-        }
 
-        $role = Role::create(['name' => 'Admin', 'guard_name' => 'api']);
-        $role = Role::create(['name' => 'Bank', 'guard_name' => 'api']);
-        $role = Role::create(['name' => 'Student', 'guard_name' => 'api']);
-        $role = Role::create(['name' => 'CodeGen','guard_name' => 'api']);
+        $roles = [
+            ['name' => 'Admin', 'guard_name' => 'api'],
+            ['name' => 'Bank', 'guard_name' => 'api'],
+            ['name' => 'Student', 'guard_name' => 'api'],
+            ['name' => 'CodeGen', 'guard_name' => 'api'],
+        ];
+
+        foreach ($roles as $role) {
+            $role = Role::firstOrCreate(
+                ['name' => $role['name']],
+                [
+                    'name' => $role['name'],
+                    'api' => $role['guard_name']
+                ]
+            );
+        }
 
         // $user1 = User::find(1);
         // $adminrole = Role::findByName('Admin');

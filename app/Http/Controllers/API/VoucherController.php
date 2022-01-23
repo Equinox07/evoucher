@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\VoucherResource;
 use App\Jobs\SendAdminEmail;
 use App\Models\Voucher;
 use Illuminate\Http\Request;
@@ -22,12 +23,6 @@ class VoucherController extends Controller
     public function index()
     {
         $vouchers = $this->voucher->notSold()->get();
-        return response()->json($vouchers);
+        return VoucherResource::collection($vouchers);
     }
-
-    public function store(Request $request)
-    {
-        SendAdminEmail::dispatch();
-    }
-
 }

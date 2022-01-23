@@ -43,7 +43,6 @@ class User extends Authenticatable implements JWTSubject
 
 
 
-
     public function scopeAdmin($query)
     {
         $query->where('type', 'admin');

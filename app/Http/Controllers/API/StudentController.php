@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Resources\StudentResource;
 use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
@@ -27,18 +28,11 @@ class StudentController extends Controller
     public function index()
     {
         $student = $this->student::all();
-        return response()->json($student);
+        return StudentResource::collection($student);
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    
 
     /**
      * Store a newly created resource in storage.

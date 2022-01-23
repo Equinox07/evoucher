@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\StudentResource;
 
 class UserController extends Controller
 {
@@ -21,7 +22,7 @@ class UserController extends Controller
     public function index()
     {
         $student = $this->student::all();
-        return response()->json($student);
+        return StudentResource::collection($student);
     }
 
 }

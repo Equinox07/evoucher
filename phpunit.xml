@@ -28,4 +28,16 @@
         <server name="SESSION_DRIVER" value="array"/>
         <server name="TELESCOPE_ENABLED" value="false"/>
     </php>
+
+    <logging>
+        <junit outputFile="tests-report.xml" />
+    </logging>
+
+    <report>
+        <clover outputFile="clover.xml" />
+        <html outputDirectory="html-coverage" lowUpperBound="50" highLowerBound="90" />
+        <!-- <php outputFile="coverage.php"/>
+        <text outputFile="coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>
+        <xml outputDirectory="xml-coverage"/> -->
+    </report>
 </phpunit>
