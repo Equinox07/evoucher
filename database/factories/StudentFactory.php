@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Student;
+use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class StudentFactory extends Factory
 {
@@ -21,13 +22,14 @@ class StudentFactory extends Factory
     */
     public function definition(): array
     {
+        $name = $this->faker->firstName;
         return [
-            'firstname' => $this->faker->firstName,
+            'firstname' =>  $name,
             'middle_name' => $this->faker->word,
             'lastname' => $this->faker->lastName,
             'type' => $this->faker->word,
-            'mobile' => $this->faker->word,
-            'slug' => $this->faker->slug,
+            'mobile' => $this->faker->phoneNumber,
+            'slug' => Str::slug($name),
             'email' => $this->faker->safeEmail,
             'password' => bcrypt($this->faker->password),
         ];

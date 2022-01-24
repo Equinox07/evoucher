@@ -2,12 +2,15 @@
 
 namespace Tests\Feature;
 
+use App\Models\Schools;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Testing\Fluent\AssertableJson;
 
 class SchoolTest extends TestCase
 {
+	use RefreshDatabase;
 	/**
 	 * Index
 	 *
@@ -30,7 +33,11 @@ class SchoolTest extends TestCase
 	{
 		$response = $this->json('GET', '/api/schools', []);
 
-		$response->assertStatus(200);
+		$response->assertStatus(200)->assertJsonStructure([
+			'data' => [
+				'*' => ['id', 'name', 'code']
+			]
+		]);
 
 	}
 
@@ -54,9 +61,13 @@ class SchoolTest extends TestCase
 	 */
 	public function testStore()
 	{
-		$response = $this->json('POST', '/api/schools', []);
 
-		$response->assertStatus(200);
+		$school = Schools::factory()->create()->toArray();
+
+		$response = $this->json('POST', '/api/schools', $school);
+
+		$response->assertStatus(201)->assertJson(fn (AssertableJson $json) => 
+		$json->hasAny('name'));
 
 	}
 

@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Voucher extends Model
 {
+    use HasFactory;
     protected $table = 'vouchers';
     protected $fillable = ['serial_no', 'voucher_code', 'sold_out'];
 

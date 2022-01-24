@@ -8,6 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class VoucherTest extends TestCase
 {
+	use RefreshDatabase;
 	/**
 	 * Index
 	 *

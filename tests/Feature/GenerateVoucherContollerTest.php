@@ -8,6 +8,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class GenerateVoucherContollerTest extends TestCase
 {
+
+	use RefreshDatabase;
 	/**
 	 * GenerateVoucher
 	 *

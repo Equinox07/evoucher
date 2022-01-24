@@ -8,6 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class StudentAuthTest extends TestCase
 {
+	use RefreshDatabase;
 	/**
 	 * Login
 	 *

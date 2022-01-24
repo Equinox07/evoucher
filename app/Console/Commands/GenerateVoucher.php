@@ -52,20 +52,12 @@ class GenerateVoucher extends Command
             new NotifySubscribers()
         ];
 
-
         Bus::chain($jobChains)->dispatch();
-
-        // foreach ($users as $user) {
-        //     # code...
-        // }
-
 
         $vouchers = Voucher::notSold()->count();
 
-        $this->line(sprintf('%d Vouchers Generated', $vouchers));
+        $this->line(sprintf('Vouchers Generated'));
 
         return 0;
-
-
     }
 }

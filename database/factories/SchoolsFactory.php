@@ -23,9 +23,9 @@ class SchoolsFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'code' => $this->faker->word,
-            'location' => $this->faker->word,
-            'status' => $this->faker->word,
+            'code' => $this->faker->randomNumber(5),
+            'location' => $this->faker->country,
+            'status' => random_int(0, 1),
         ];
     }
 }

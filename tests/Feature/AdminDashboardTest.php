@@ -8,6 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AdminDashboardTest extends TestCase
 {
+	use RefreshDatabase;
 	/**
 	 * LoadStats
 	 *
@@ -32,7 +33,7 @@ class AdminDashboardTest extends TestCase
 
 		$response->assertStatus(200)
 				->assertJsonFragment([
-					
+
 				]);
 
 	}
